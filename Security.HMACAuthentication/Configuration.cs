@@ -1,13 +1,11 @@
 ﻿using Security.HMACAuthentication.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Security.HMACAuthentication
 {
     public class Configuration : IConfiguration
     {
-        public IHashKeyRepo HashKeyRepo => new HashKeyRepo();
+        public IHashKeyRepo HashKeyRepo => throw new NotImplementedException();
 
         public IReplayCache ReplayCache => new ReplayCache();
 

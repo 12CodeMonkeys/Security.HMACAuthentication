@@ -34,7 +34,7 @@ namespace Security.HMACAuthentication
             {
                 byte[] secretKeyByteArray = new byte[hmak.HashSize / 8];
                 cryptoProvider.GetBytes(secretKeyByteArray);
-                return new HashKeys(appId ?? new Guid().ToString(), Convert.ToBase64String(secretKeyByteArray), hashAlgorithm, hmacAlgorithm, userId);
+                return new HashKeys(appId ?? Guid.NewGuid().ToString(), Convert.ToBase64String(secretKeyByteArray), hashAlgorithm, hmacAlgorithm, userId);
             }
         }
     }

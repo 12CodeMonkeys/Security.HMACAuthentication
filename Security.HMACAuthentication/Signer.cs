@@ -30,7 +30,7 @@ namespace Security.HMACAuthentication
             if (hash != null)
                 encodedContent = Convert.ToBase64String(hash);
 
-            var data = $"{hashKeys.ApiKey}{httpMethod}{requestUrl}{authHeader.Epoch}{authHeader.Nonce}{encodedContent}";
+            var data = $"{hashKeys.APPId}{httpMethod}{requestUrl}{authHeader.Epoch}{authHeader.Nonce}{encodedContent}";
             var calcSignature = Encoding.UTF8.GetBytes(data);
 
             using (var hmac = HMAC.Create(hashKeys.HmacAlgorithm))

@@ -1,6 +1,5 @@
 ﻿using Security.HMACAuthentication.Interfaces;
 using System;
-using System.Net.Http;
 
 namespace Security.HMACAuthentication
 {

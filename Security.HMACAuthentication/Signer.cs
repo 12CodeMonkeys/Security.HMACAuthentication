@@ -12,7 +12,11 @@ namespace Security.HMACAuthentication
         public async Task<string> SignAsync(HttpRequestMessage request, IAuthorizationHeader authHeader, IHashKeys hashKeys)
         {
             var requestContentBase64String = string.Empty;
+#if NETSTANDARD2_0
             var requestUrl = System.Web.HttpUtility.UrlEncode(request.RequestUri.AbsoluteUri.ToLower());
+#else
+            var requestUrl = System.Uri.EscapeDataString(request.RequestUri.AbsoluteUri.ToLower());
+#endif
             var httpMethod = request.Method.Method;
             byte[] content = null;
 
